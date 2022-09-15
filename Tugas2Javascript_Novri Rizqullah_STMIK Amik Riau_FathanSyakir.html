@@ -1,0 +1,72 @@
+<h3 align="center">Daftar Pegawai</h3>
+		<table align="center" cellpadding="10" width="40%">
+			<thead>
+				<tr bgcolor="khaki" >
+					<th>NO</th>
+					<th>NAMA</th>
+					<th>Jabatan</th>
+					<th>Agama</th>
+					<th>Gaji Pokok</th>
+					<th>Tunjangan Jabatan</th>
+					<th>Tunjangan Kesehatan</th>
+					<th>Gaji Kotor</th>
+					<th>Zakat Profesi</th>
+					<th>Take Home Pay</th>
+				</tr>
+			</thead>
+			<tbody>
+                <script language="javascript">
+                var no, warna, jabatan, agama, gajipokok, tunj_jabatan, tunj_kesehatan, gajikotor, zakatprofesi, takehome;
+                for(no = 1; no <= 100; no++){
+                    warna = (no % 2 == 0) ? 'lightblue' :'yellow';
+                    if (warna == "yellow") {
+                    	agama = "Muslim";
+                    }else{
+                    	agama = "non Muslim";
+                    }
+                    	if (no <= 25) {
+                    		jabatan = "Manager";
+                    		gajipokok = 15000000;
+                    	} 
+                    	else if (no <= 50){
+                    		jabatan = "Asisten Mangaer";
+                    		gajipokok = 10000000;
+                    	}
+                    	else if (no <= 75) {
+                    		jabatan = "Supervisor";
+                    		gajipokok = 7000000;
+                    	}
+                    	else {
+                    		jabatan = "Staff";
+                    		gajipokok = 4000000;
+                    	}
+
+                    	tunj_jabatan = 20/100 * gajipokok;
+                    	tunj_kesehatan = 10/100 * gajipokok;
+
+                    	gajikotor = gajipokok + tunj_jabatan + tunj_kesehatan;
+
+                    	if (agama == "Muslim") {
+                    		zakatprofesi = 2.5/100 * gajikotor;
+                    	}
+                    	else {
+                    		zakatprofesi = 0;
+                    	}
+
+                    	takehome = gajikotor - zakatprofesi;
+                    document.write(`<tr bgcolor="${warna}">
+                        <td>${no}</td>
+                        <td>Pegawai${no}</td>
+                        <td>`+ jabatan +` </td>
+                        <td>`+ agama +` </td>
+                        <td>`+ gajipokok +` </td>
+                        <td>`+ tunj_jabatan +` </td>
+                        <td>`+ tunj_kesehatan +` </td>
+                        <td>`+ gajikotor +` </td>
+                         <td>`+ zakatprofesi +` </td>
+                         <td>`+ takehome +` </td>
+                    </tr>`);
+                }    
+                </script>
+			</tbody>
+		</table>_
